@@ -8,6 +8,7 @@ export default function PlayerOverlay({
     player,
     isPaused,
     position,
+    shuffle,
 }) {
     return (
         <div
@@ -44,6 +45,7 @@ export default function PlayerOverlay({
                             isPaused={isPaused}
                             position={position}
                             track={track}
+                            shuffle={shuffle}
                         />
                     )}
                 </div>

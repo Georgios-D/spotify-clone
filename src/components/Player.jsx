@@ -12,6 +12,8 @@ export default function Player() {
     const [position, setPosition] = useState(null);
     const [playerOverlayIsOpen, setPlayerOverlayIsOpen] = useState(false);
     const [isActive, setIsActive] = useState(false);
+    const [shuffle, setShuffle] = useState(false);
+    const [repeat, setRepeat] = useState(0);
 
     useEffect(() => {
         const token = sessionStorage.getItem("spotify-key");
@@ -41,10 +43,11 @@ export default function Player() {
                     return;
                 }
 
-                console.log("state changed:", state);
                 setTrack(state.track_window.current_track);
                 setIsPaused(state.paused);
                 setPosition(state.position);
+                setShuffle(state.shuffle);
+                setRepeat(state.repeat_mode);
 
                 player.getCurrentState().then((state) => {
                     if (!state) {
@@ -110,6 +113,8 @@ export default function Player() {
                         isPaused={isPaused}
                         position={position}
                         track={track}
+                        shuffle={shuffle}
+                        repeat={repeat}
                     />
                 </div>
                 <div className="flex flex-1 justify-end max-md:hidden">
@@ -123,6 +128,8 @@ export default function Player() {
                 isPaused={isPaused}
                 position={position}
                 track={track}
+                shuffle={shuffle}
+                repeat={repeat}
             />
         </div>
     );

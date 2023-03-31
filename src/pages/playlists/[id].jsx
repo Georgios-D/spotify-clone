@@ -118,7 +118,7 @@ export default function Playlist() {
                                   </div>
                                   <div className="flex items-center gap-4 overflow-hidden">
                                       <img
-                                          src={item.track.album.images[0].url}
+                                          src={item.track.album.images[0]?.url}
                                           alt=""
                                           className=" h-12 w-12"
                                       />
